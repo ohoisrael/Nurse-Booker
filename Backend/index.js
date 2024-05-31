@@ -8,8 +8,11 @@ import authRoute from './Routes/auth.js';
 import userRoute from './Routes/user.js';
 import nurseRoute from './Routes/nurse.js';
 import bookingRoute from './Routes/booking.js';
+import path from 'path'
 
 dotenv.config();
+
+const __dirname = path.resolve()
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -40,6 +43,12 @@ app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/nurses', nurseRoute);
 app.use('/api/v1/bookings', bookingRoute);
+
+app.use(express.static(path.join(__dirname, '/Frontend/dist')))
+
+app.get('*', (req, res)=> {
+    res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'))
+})
 
 app.listen(port, () => {
     connectDB();
