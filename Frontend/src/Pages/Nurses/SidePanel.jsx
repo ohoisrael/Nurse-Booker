@@ -19,7 +19,7 @@ const SidePanel = ({ nurseId, ticketPrice, timeSlots }) => {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message + "Please try again");
+        throw new Error(data.message + " Please login");
       }
 
       if (data.session.url) {
