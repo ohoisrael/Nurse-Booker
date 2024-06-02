@@ -1,11 +1,11 @@
 import Nurse from '../models/NurseSchema.js'
 import User from '../models/UserSchema.js'
 import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 
 const generateToken = user => {
     return jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_key, {
-        expiresIn: "15d",
+        expiresIn: "1d",
     })
 }
 
