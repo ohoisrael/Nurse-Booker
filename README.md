@@ -1,0 +1,1 @@
+This is a Nurse Booker web-app built with React, Node and MongoDB, the project serves as a job portal for nurses, so users can search for nurses based on location and book them by the appointment times and them make payments, which is by Stripe payment
